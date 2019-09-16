@@ -1,0 +1,32 @@
+{
+  "nativescript": {
+    "id": "com.ladeezfirstmedia.WineUp",
+    "tns-android": {
+      "version": "6.0.1"
+    },
+    "tns-ios": {
+      "version": "6.0.2"
+    }
+  },
+  "description": "WineUp - your pocket sommelier",
+  "license": "Apache",
+  "repository": "github.com/jlooper/wineup",
+  "dependencies": {
+    "nativescript-vue": "~2.4.0",
+    "tns-core-modules": "~6.1.0",
+    "nativescript-camera": "^4.5.0",
+    "nativescript-plugin-firebase": "9.0.4",
+    "nativescript-windowed-modal": "^6.0.0",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.1.0",
+    "@babel/preset-env": "~7.1.0",
+    "babel-loader": "~8.0.0",
+    "nativescript-dev-webpack": "~1.1.0",
+    "nativescript-vue-template-compiler": "~2.4.0",
+    "vue-loader": "~15.4.0"
+  },
+  "gitHead": "1350d382fb4b0ed4c6e9685df909518b2688e004",
+  "readme": "NativeScript Application"
+}

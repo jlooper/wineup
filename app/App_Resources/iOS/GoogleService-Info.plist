@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>765538348518-ffiusdgbp0ul2cgd88fhbaoe5tjm54rh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.765538348518-ffiusdgbp0ul2cgd88fhbaoe5tjm54rh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDELwvpOsHWdfJGCDMjaqngt_I0IjQPYc0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>765538348518</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ladeezfirstmedia.wineup</string>
+	<key>PROJECT_ID</key>
+	<string>wineup-9cdfd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wineup-9cdfd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:765538348518:ios:f6e31b1a0280ff160d3a27</string>
+	<key>DATABASE_URL</key>
+	<string>https://wineup-9cdfd.firebaseio.com</string>
+</dict>
+</plist>

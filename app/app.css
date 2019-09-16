@@ -1,0 +1,87 @@
+.page {
+	background-color: #000;
+}
+.page-title {
+	text-align: center;
+	font-size: 25;
+	padding: 30;
+	font-family: 'Black Jack';
+	color: #fff;
+	height: 70;
+}
+
+/*.card {
+	background: #740235;
+	border-radius: 5;
+	margin: 10;
+	height: 85%;
+}
+.mini-card {
+	border-radius: 5;
+	margin: 15;
+	padding: 15;
+	text-align: center;
+	background-color: #ffefd7;
+	font-family: 'Josefin Slab';
+	font-size: 20;
+	height: 40;
+}
+
+.inner-card {
+	border-radius: 5;
+	margin: 15;
+	padding: 15;
+	text-align: center;
+	background-color: #ffefd7;
+	font-family: 'Josefin Slab';
+	font-size: 20;
+	min-height: 500px;
+}
+
+.title {
+	font-family: 'Josefin Sans';
+	font-size: 35;
+	color: #3c1616;
+	padding: 5;
+	margin-top: 10;
+}
+.subtitle {
+	font-family: 'Josefin Sans';
+	font-size: 30;
+	color: black;
+	padding: 5;
+	margin-bottom: 10;
+}*/
+
+.label {
+	font-family: 'Black Jack';
+	color: #fff;
+	font-size: 25;
+}
+.title {
+	font-family: 'Black Jack';
+	font-size: 20;
+	margin: 5px;
+}
+.description {
+	margin: 10;
+	padding: 5;
+	font-size: 20;
+	font-family: 'Black Jack';
+}
+.nav-btn {
+	border-radius: 20;
+	padding: 10;
+	margin: 10;
+	/*background-color: #a61858;*/
+}
+
+.colored {
+	background-color: #a50404;
+}
+
+.bottom-nav {
+	background-color: #670303;
+	border-top-left-radius: 20;
+	border-top-right-radius: 20;
+}
