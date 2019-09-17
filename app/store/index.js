@@ -1,14 +1,14 @@
 import Vue from 'nativescript-vue';
 import Vuex from 'vuex';
-import cheese from '~/assets/cheesetypes.json';
+import cheesedata from '~/assets/cheesetypes.json';
 import * as http from 'http';
 
 Vue.use(Vuex);
 
 const state = {
-    wines: [],
-    wine: [],
-    cheese: [],
+    wines: null,
+    wine: null,
+    cheese: null,
 };
 
 const mutations = {
@@ -25,26 +25,31 @@ const mutations = {
 
 const actions = {
     fetchWines({ commit }, payload) {
-        http.getJSON('https://wineup.azurewebsites.net/api/getTopWines').then(
+        http.getJSON('https://wineup.azurewebsites.net/api/getTopWines?type=' + payload).then(
             result => {
-                this.result = result.data;
-                console.log(this.result);
+                commit('displayWines', result);
             },
             error => {
-                console.log(error);
+                alert(error);
             }
         );
-        commit('displayWines', this.result);
     },
-    fetchDailyWine({ commit }, payload) {
-        //commit('displayDailyWine', payload);
+    fetchDailyWine({ commit }) {
+        http.getJSON('https://wineup.azurewebsites.net/api/getDailyWine').then(
+            result => {
+                commit('displayDailyWine', result.data);
+            },
+            error => {
+                alert(error);
+            }
+        );
     },
     fetchCheese({ commit }, payload) {
         //display type from .json
-        for (var i = 0; i < cheese.length; i++) {
-            if (cheese[i].type == payload) {
+        for (var i = 0; i < cheesedata.length; i++) {
+            if (cheesedata[i].type == payload) {
+                var cheese = cheesedata[i];
                 console.log(cheese);
-                let cheese = JSON.stringify(cheese[i]);
                 commit('displayCheese', cheese);
                 break;
             }

@@ -10,14 +10,14 @@
     "examples": "Brie, camembert, robiola, crottin de chavignol"
   },
   {
-    "type": "Washed Rind",
+    "type": "Washed-Rind",
     "description": "A bath in brine, beer or wine produces a distinct orange rind. They’re rich and creamy, and they can be soft or semi-soft in texture. They’re funkier than bloomy cheeses, with gamy, often pleasantly pungent notes.",
     "examples": "Fontina, epoisses, reblochon, taleggio, munster"
   },
   {
     "type": "Semi-Soft",
-    "description": "",
-    "examples": ""
+    "description": "They’re not spreadable, nor do they break in shards like a hard cheese. They tend to be creamy and fairly mild in flavor. Many are excellent to melt and perfect to slice. Some cheeses like Gouda are semi-soft in younger styles, while when aged, their texture turns hard.",
+    "examples": "Gruyere, gouda, havarti, provolone, edam, mimolette"
   },
   {
     "type": "Hard",

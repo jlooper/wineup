@@ -85,3 +85,12 @@
 	border-top-left-radius: 20;
 	border-top-right-radius: 20;
 }
+
+/*modals*/
+.modal-card {
+	border-radius: 5;
+	margin: 20;
+	background-color: #e3e9f8;
+	color: #131636;
+	height: 50%;
+}

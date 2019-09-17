@@ -13,7 +13,8 @@
           <Image height="150" src="~/assets/chardonnay.png" />
           <Label height="50" class="label" text="Chardonnay" />
         </StackLayout>
-        <StackLayout class="bottle" orientation="vertical" col="1" row="0">
+
+        <StackLayout @tap="openModal()" class="bottle" orientation="vertical" col="1" row="0">
           <Image height="150" src="~/assets/malbec.png" />
           <Label height="50" class="label" text="Malbec" />
         </StackLayout>
@@ -58,18 +59,13 @@ export default {
   },
   methods: {
     ...mapActions(["fetchWines"]),
-    setWineType(wine) {
-      this.fetchWines(wine).then(result => {
-        this.showWines(wines);
+    async setWineType(wine) {
+      await this.fetchWines(wine).then(result => {
+        this.openModal(result);
       });
     },
-    showWines(wines) {
-      console.log(wines);
-      this.$showModal(WineModal, {
-        props: {
-          wines: wines
-        }
-      });
+    openModal(wines) {
+      this.$showModal(WineModal, { props: wines });
     }
   }
 };

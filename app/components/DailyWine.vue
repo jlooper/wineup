@@ -2,8 +2,8 @@
   <ScrollView>
     <GridLayout rows="auto, auto" verticalAlignment="top">
       <Label row="0" class="page-title" text="Daily Wine" />
-      <!--<StackLayout row="1" class="card">
-        <Label class="title" :text="'wine.name'+': '+'wine.country'" />
+      <StackLayout row="1" class="card">
+        <Label class="title" :text="wine.name+': '+wine.country" />
         <GridLayout rows="*,*" columns="2*,*">
           <Label
             class="description"
@@ -19,7 +19,7 @@
           <Label row="1" col="1" class="description" :text="wine.price" />
         </GridLayout>
         <Slider :value="wine.rating" backgroundColor="green" />
-      </StackLayout>-->
+      </StackLayout>
     </GridLayout>
   </ScrollView>
 </template>
@@ -27,6 +27,18 @@
 import { mapActions, mapState } from "vuex";
 
 export default {
+  data() {
+    return {
+      wine: {
+        name: "1",
+        description: "2",
+        type: "3",
+        price: "4",
+        country: "5"
+      },
+      showCard: true
+    };
+  },
   computed: {
     ...mapState(["dailyWine"])
   },

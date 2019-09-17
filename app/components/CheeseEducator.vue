@@ -2,30 +2,46 @@
   <ScrollView>
     <GridLayout rows="auto,auto,auto" verticalAlignment="top">
       <Label row="0" class="page-title" text="Learn about Cheese" />
-      <Button
-        row="1"
-        style="visibility:collapsed"
-        ref="recipesbtn"
-        class="recipe-card recipe-btn"
-        text="Recommendation"
-      />
-      <GridLayout row="2" columns="*,*" rows="*,*,*" @tap="showCheese(bloomy)">
+      <StackLayout row="1" v-if="showCard">
+        <Label class="page-title" v-if="showCard" :text="cheese.type" />
+        <Label class="page-title" wordWrap="true" v-if="showCard" :text="cheese.description" />
+        <Label class="page-title" wordWrap="true" v-if="showCard" :text="cheese.examples" />
+      </StackLayout>
+      <GridLayout row="2" columns="*,*" rows="*,*,*" @tap="setCheeseType('Bloomy')">
         <StackLayout class="cheese" orientation="vertical" col="0" row="0">
           <Image height="150" stretch="fit" src="~/assets/bloomy.jpg" />
           <Label height="50" class="label" text="Bloomy" />
         </StackLayout>
 
-        <StackLayout class="cheese" orientation="vertical" col="1" row="0" @tap="showCheese(blue)">
+        <StackLayout
+          class="cheese"
+          orientation="vertical"
+          col="1"
+          row="0"
+          @tap="setCheeseType('Blue')"
+        >
           <Image height="150" stretch="fit" src="~/assets/blue.jpg" />
           <Label height="50" class="label" text="Blue" />
         </StackLayout>
 
-        <StackLayout orientation="vertical" class="cheese" col="0" row="1" @tap="showCheese(fresh)">
+        <StackLayout
+          orientation="vertical"
+          class="cheese"
+          col="0"
+          row="1"
+          @tap="setCheeseType('Fresh')"
+        >
           <Image height="150" stretch="fit" src="~/assets/fresh.jpg" />
           <Label height="50" textWrap="true" class="label" text="Fresh" />
         </StackLayout>
 
-        <StackLayout orientation="vertical" class="cheese" col="1" row="1" @tap="showCheese(hard)">
+        <StackLayout
+          orientation="vertical"
+          class="cheese"
+          col="1"
+          row="1"
+          @tap="setCheeseType('Hard')"
+        >
           <Image height="150" stretch="fit" src="~/assets/hard.jpg" />
           <Label height="50" textWrap="true" class="label" text="Hard" />
         </StackLayout>
@@ -35,7 +51,7 @@
           class="cheese"
           col="0"
           row="2"
-          @tap="showCheese(semi-soft)"
+          @tap="setCheeseType('Semi-Soft')"
         >
           <Image height="150" stretch="fit" src="~/assets/semi-soft.jpg" />
           <Label height="50" class="label" text="Semi-Soft" />
@@ -45,7 +61,7 @@
           class="cheese"
           col="1"
           row="2"
-          @tap="showCheese(washed-rind)"
+          @tap="setCheeseType('Washed-Rind')"
         >
           <Image height="150" stretch="fit" src="~/assets/washed-rind.jpg" />
           <Label height="50" class="label" text="Washed Rind" />
@@ -57,33 +73,23 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import CheeseModal from "../components/CheeseModal";
 
 export default {
   data() {
     return {
-      cheeseModal: CheeseModal
+      showCard: false
     };
   },
-  components: {
-    modalWindow: CheeseModal
-  },
+
   computed: {
     ...mapState(["cheese"])
   },
   methods: {
     ...mapActions(["fetchCheese"]),
+
     setCheeseType(type) {
-      this.fetchRecipe(type).then(result => {
-        this.showCheese(result);
-      });
-    },
-    showCheese(cheese) {
-      this.$showModal(CheeseModal, {
-        props: {
-          cheese: cheese
-        }
-      });
+      this.showCard = true;
+      this.fetchCheese(type);
     }
   }
 };
