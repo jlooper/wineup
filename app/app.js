@@ -2,13 +2,8 @@ import Vue from 'nativescript-vue';
 import store from './store';
 import Home from './components/Home';
 Vue.prototype.$store = store;
-//import { ModalStack, overrideModalViewMethod, VueWindowedModal } from 'nativescript-windowed-modal';
+
 import firebase from 'nativescript-plugin-firebase';
-
-//overrideModalViewMethod();
-//Vue.registerElement('ModalStack', () => ModalStack);
-//Vue.use(VueWindowedModal);
-
 firebase
     .init({
         // Optionally pass in properties for database, authentication and cloud messaging,
@@ -23,10 +18,6 @@ firebase
         }
     );
 Vue.prototype.$firebase = firebase;
-/*Vue.registerElement(
-	'MLKitTextRecognition',
-	() => require('nativescript-plugin-firebase/mlkit/textrecognition').MLKitTextRecognition
-);*/
 Vue.registerElement(
     'MLKitCustomModel',
     () => require('nativescript-plugin-firebase/mlkit/custommodel').MLKitCustomModel

@@ -2,8 +2,9 @@
   <ScrollView>
     <GridLayout rows="auto, auto" verticalAlignment="top">
       <Label row="0" class="page-title" text="Daily Wine" />
-      <StackLayout row="1" class="card">
-        <Label class="title" :text="wine.name+': '+wine.country" />
+      <ActivityIndicator row="1" width="100" height="100" busy="true" />
+      <StackLayout v-if="loaded" row="1" class="card">
+        <Label textWrap="true" class="title" :text="wine.title+': '+wine.country" />
         <GridLayout rows="*,*" columns="2*,*">
           <Label
             class="description"
@@ -16,36 +17,62 @@
           <Image height="200" row="0" col="1" src="~/assets/malbec.png" />
 
           <Label row="1" col="0" class="description" :text="wine.winery" />
-          <Label row="1" col="1" class="description" :text="wine.price" />
+          <Label row="1" col="1" class="description" :text="'$'+wine.price" />
         </GridLayout>
-        <Slider :value="wine.rating" backgroundColor="green" />
+        <Slider :value="wine.points" backgroundColor="green" />
       </StackLayout>
     </GridLayout>
   </ScrollView>
 </template>
 <script>
-import { mapActions, mapState } from "vuex";
-
+import axios from "axios";
 export default {
   data() {
     return {
       wine: {
-        name: "1",
-        description: "2",
-        type: "3",
-        price: "4",
-        country: "5"
+        name: "",
+        description: "",
+        type: "",
+        price: "",
+        country: ""
       },
-      showCard: true
+      loaded: false
     };
   },
-  computed: {
-    ...mapState(["dailyWine"])
-  },
+
   methods: {
-    ...mapActions(["fetchDailyWine"])
+    async fetchDailyWine() {
+      //account for cold start and big data with async await
+      try {
+        const response = await axios.get(
+          "https://wineup.azurewebsites.net/api/getDailyWine"
+        );
+        console.log(response.data.data[0]);
+        this.wine = response.data.data[0];
+        this.loaded = true;
+      } catch (error) {
+        console.error(error);
+      }
+      //this.wine = {};
+
+      /*axios
+        .get("https://wineup.azurewebsites.net/api/getDailyWine")
+        .then(function(res) {
+          console.log(res);
+          this.wine = JSON.stringify(res.data[0]);
+          console.log(this.wine);
+          this.loaded = true;
+        })
+        .catch(function(e) {
+          this.loaded = true;
+          console.log(e);
+        })
+        .finally(function() {
+          console.log("done");
+        });*/
+    }
   },
-  created() {
+  mounted() {
     this.fetchDailyWine();
   }
 };
