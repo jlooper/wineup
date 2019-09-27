@@ -1,35 +1,42 @@
 <template>
-  <Page>
-    <StackLayout class="modal-container">
-      <GridLayout
-        class="modal-card modal"
-        rows="auto,auto"
-        verticalAlignment="middle"
-        style="height:60%"
-      >
-        <Button row="0" @tap="$modal.close" class="fa close" text="x" horizontalAlignment="right" />
+  <StackLayout class="modal-page">
+    <GridLayout
+      class="modal-card half"
+      rows="auto,auto"
+      verticalAlignment="middle"
+      style="height:100%"
+    >
+      <Button row="0" @tap="$modal.close" class="fa close" text="x" horizontalAlignment="right" />
 
+      <Label
+        style="text-align:center;font-weight:bold"
+        row="1"
+        v-show="cheese.length==0"
+        text="Sorry, no cheese!"
+        verticalAlignment="top"
+      />
+
+      <StackLayout row="1" class="wine-card">
+        <Label :text="cheese.type" textWrap="true" class="modal-title" />
+        <Label class="modal-text" textWrap="true" :text="cheese.description" />
         <Label
-          style="text-align:center;font-weight:bold"
-          row="1"
-          v-show="cheese.length==0"
-          text="Sorry, no cheese!"
-          verticalAlignment="top"
+          class="modal-text"
+          textWrap="true"
+          style="padding-top:10"
+          :text="'🧀: '+cheese.examples"
         />
-
-        <StackLayout class="wine-card">
-          <Label :text="cheese.type" textWrap="true" style="font-size:30;padding-bottom:5" />
-          <Label textWrap="true" :text="cheese.description" />
-          <Label textWrap="true" style="padding-top:5" :text="cheese.examples" />
-        </StackLayout>
-      </GridLayout>
-    </StackLayout>
-  </Page>
+        <Label
+          class="modal-text"
+          textWrap="true"
+          style="padding-top:10"
+          :text="'🍷: '+cheese.pairing"
+        />
+      </StackLayout>
+    </GridLayout>
+  </StackLayout>
 </template>
-
 <script>
 export default {
-  props: ["cheese"],
-  name: "CheeseModal"
+  props: ["cheese"]
 };
 </script>

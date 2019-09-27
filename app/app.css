@@ -90,7 +90,27 @@
 .modal-card {
 	border-radius: 5;
 	margin: 20;
-	background-color: #e3e9f8;
-	color: #131636;
+	padding: 5;
+	font-family: 'Black Jack';
+	background: linear-gradient(51deg, rgb(24, 24, 24) 0%, rgb(7, 6, 7) 100%);
+	color: white;
+}
+.half {
 	height: 50%;
+}
+.full {
+	height: 100%;
+}
+
+.modal-page {
+	background-color: black;
+}
+
+.modal-title {
+	font-size: 30;
+	padding-bottom: 5;
+}
+.modal-text {
+	font-size: 20;
+	padding-bottom: 5;
 }

@@ -1,14 +1,16 @@
 <template>
   <ScrollView>
-    <GridLayout rows="auto,auto,auto" verticalAlignment="top">
+    <GridLayout rows="auto,auto" verticalAlignment="top">
       <Label row="0" class="page-title" text="Learn about Cheese" />
-      <StackLayout row="1" v-if="showCard">
-        <Label class="page-title" v-if="showCard" :text="cheese.type" />
-        <Label class="page-title" wordWrap="true" v-if="showCard" :text="cheese.description" />
-        <Label class="page-title" wordWrap="true" v-if="showCard" :text="cheese.examples" />
-      </StackLayout>
-      <GridLayout row="2" columns="*,*" rows="*,*,*" @tap="setCheeseType('Bloomy')">
-        <StackLayout class="cheese" orientation="vertical" col="0" row="0">
+
+      <GridLayout row="1" columns="*,*" rows="*,*,*">
+        <StackLayout
+          class="cheese"
+          orientation="vertical"
+          col="0"
+          row="0"
+          @tap="setCheeseType('Bloomy')"
+        >
           <Image height="150" stretch="fit" src="~/assets/bloomy.jpg" />
           <Label height="50" class="label" text="Bloomy" />
         </StackLayout>
@@ -72,24 +74,19 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import CheeseModal from "./CheeseModal";
+import cheesedata from "../assets/cheesetypes.json";
 
 export default {
-  data() {
-    return {
-      showCard: false
-    };
-  },
-
-  computed: {
-    ...mapState(["cheese"])
-  },
   methods: {
-    ...mapActions(["fetchCheese"]),
-
     setCheeseType(type) {
-      this.showCard = true;
-      this.fetchCheese(type);
+      for (var i = 0; i < cheesedata.length; i++) {
+        if (cheesedata[i].type == type) {
+          var cheese = cheesedata[i];
+          this.$showModal(CheeseModal, { props: { cheese: cheese } });
+          break;
+        }
+      }
     }
   }
 };

@@ -1,6 +1,5 @@
 import Vue from 'nativescript-vue';
 import Vuex from 'vuex';
-import cheesedata from '~/assets/cheesetypes.json';
 import * as http from 'http';
 
 Vue.use(Vuex);
@@ -8,16 +7,11 @@ Vue.use(Vuex);
 const state = {
     wines: null,
     wine: null,
-    cheese: null,
 };
 
 const mutations = {
     displayWines: (state, wines) => {
         state.wines = wines;
-    },
-
-    displayCheese: (state, cheese) => {
-        state.cheese = cheese;
     },
 };
 
@@ -31,18 +25,6 @@ const actions = {
                 alert(error);
             }
         );
-    },
-
-    fetchCheese({ commit }, payload) {
-        //display type from .json
-        for (var i = 0; i < cheesedata.length; i++) {
-            if (cheesedata[i].type == payload) {
-                var cheese = cheesedata[i];
-                console.log(cheese);
-                commit('displayCheese', cheese);
-                break;
-            }
-        }
     },
 };
 

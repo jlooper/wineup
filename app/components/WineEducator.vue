@@ -8,31 +8,61 @@
           orientation="vertical"
           col="0"
           row="0"
-          @tap="setWineType('chardonnay')"
+          @tap="setWineType('Chardonnay')"
         >
           <Image height="150" src="~/assets/chardonnay.png" />
           <Label height="50" class="label" text="Chardonnay" />
         </StackLayout>
 
-        <StackLayout @tap="openModal()" class="bottle" orientation="vertical" col="1" row="0">
+        <StackLayout
+          class="bottle"
+          orientation="vertical"
+          col="1"
+          row="0"
+          @tap="setWineType('Malbec')"
+        >
           <Image height="150" src="~/assets/malbec.png" />
           <Label height="50" class="label" text="Malbec" />
         </StackLayout>
 
-        <StackLayout orientation="vertical" class="bottle" col="0" row="1">
+        <StackLayout
+          orientation="vertical"
+          class="bottle"
+          col="0"
+          row="1"
+          @tap="setWineType('Sauvignon Blanc')"
+        >
           <Image height="150" src="~/assets/sauvignonblanc.png" />
           <Label height="50" textWrap="true" class="label" text="Sauvignon Blanc" />
         </StackLayout>
-        <StackLayout orientation="vertical" class="bottle" col="1" row="1">
+        <StackLayout
+          orientation="vertical"
+          class="bottle"
+          col="1"
+          row="1"
+          @tap="setWineType('Cabernet Sauvignon')"
+        >
           <Image height="150" src="~/assets/cabernetsauvignon.png" />
           <Label height="50" textWrap="true" class="label" text="Cabernet Sauvignon" />
         </StackLayout>
 
-        <StackLayout orientation="vertical" class="bottle" col="0" row="2">
+        <StackLayout
+          orientation="vertical"
+          class="bottle"
+          col="0"
+          row="2"
+          @tap="setWineType('Rosé')"
+        >
           <Image height="150" src="~/assets/rose.png" />
           <Label height="50" class="label" text="Rosé" />
         </StackLayout>
-        <StackLayout orientation="vertical" class="bottle" col="1" row="2">
+        <StackLayout
+          orientation="vertical"
+          class="bottle"
+          col="1"
+          row="2"
+          @tap="setWineType('Syrah')"
+        >
           <Image height="150" src="~/assets/syrah.png" />
           <Label height="50" class="label" text="Syrah" />
         </StackLayout>
@@ -42,30 +72,32 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
 import WineModal from "../components/WineModal";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      wineModal: WineModal
+      wines: []
     };
   },
-  components: {
-    modalWindow: WineModal
-  },
-  computed: {
-    ...mapState(["wines"])
-  },
+
   methods: {
-    ...mapActions(["fetchWines"]),
     async setWineType(wine) {
-      await this.fetchWines(wine).then(result => {
-        this.openModal(result);
-      });
+      //account for cold start and big data with async await
+      try {
+        const response = await axios.get(
+          "https://wineup.azurewebsites.net/api/getTopWines?type=" + wine + ""
+        );
+        this.wines = response.data.data;
+        this.openModal();
+      } catch (error) {
+        console.error(error);
+      }
     },
-    openModal(wines) {
-      this.$showModal(WineModal, { props: wines });
+
+    openModal() {
+      this.$showModal(WineModal, { props: { wines: this.wines } });
     }
   }
 };

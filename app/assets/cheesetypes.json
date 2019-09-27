@@ -2,31 +2,37 @@
   {
     "type": "Fresh",
     "description": "Soft and rindless, these can be made with cow, goat or sheep milk. They’re not aged and have a mild, slightly tangy flavor. While a log of bright white goat cheese is iconic, the category also includes farmer’s cheese, ricotta and others that come in tubs.",
-    "examples": "Mozarella, burrata, chevre, feta, ricotta, mascarpone"
+    "examples": "Mozarella, burrata, chevre, feta, ricotta, mascarpone",
+    "pairing": "Dry or young white like Chardonnay or Riesling. Young, fruity, unoaked red like Cabernet Franc or Pinot Noir"
   },
   {
     "type": "Bloomy",
     "description": "These are named for the bloom of white mold on the outside. They tend to be the richest and creamiest type of cheese, with a soft, spreadable texture. The rind is edible, and it has a stronger, funkier flavor than the interior.",
-    "examples": "Brie, camembert, robiola, crottin de chavignol"
+    "examples": "Brie, camembert, robiola, crottin de chavignol",
+    "pairing": "Dry sparkling, light-bodied, dry, unoaked Chardonnay, Dry Riesling or Chenin Blanc, dry, fruity, unoaked red like Pinot Noir, Gamay"
   },
   {
     "type": "Washed-Rind",
     "description": "A bath in brine, beer or wine produces a distinct orange rind. They’re rich and creamy, and they can be soft or semi-soft in texture. They’re funkier than bloomy cheeses, with gamy, often pleasantly pungent notes.",
-    "examples": "Fontina, epoisses, reblochon, taleggio, munster"
+    "examples": "Fontina, epoisses, reblochon, taleggio, munster",
+    "pairing": "Dry sparkling whites, dry, unoaked whites like Gewurztraminer, Alsacian whites, structured whites like Marsanne. Reds like Beaujolais Villages, Pinot Noir"
   },
   {
     "type": "Semi-Soft",
     "description": "They’re not spreadable, nor do they break in shards like a hard cheese. They tend to be creamy and fairly mild in flavor. Many are excellent to melt and perfect to slice. Some cheeses like Gouda are semi-soft in younger styles, while when aged, their texture turns hard.",
-    "examples": "Gruyere, gouda, havarti, provolone, edam, mimolette"
+    "examples": "Gruyere, gouda, havarti, provolone, edam, mimolette",
+    "pairing": "Dry whites with a hint of oak like Chardonnay, rustic, unoaked reds like Côtes de Rhône, Corbières."
   },
   {
     "type": "Hard",
     "description": "They’re not spreadable, nor do they break in shards like a hard cheese. They tend to be creamy and fairly mild in flavor. Many are excellent to melt and perfect to slice. Some cheeses like Gouda are semi-soft in younger styles, while when aged, their texture turns hard.",
-    "examples": "Gruyere, gouda, havarti, provolone, edam, mimolette"
+    "examples": "Gruyere, gouda, havarti, provolone, edam, mimolette",
+    "pairing": "Vintage sparkling whites, sherry, or a bold Red with some age like Bordeaux blends or Nebbiolo."
   },
   {
     "type": "Blue",
     "description": "Veins of blue mold run through these. They can be soft and creamy, or semi-soft and crumbly. Some are sweeter and milder, but all pack a good deal of sharpness and tang.",
-    "examples": "Cambozola, danish blue, gorgonzola, roquefort,stilton, bleu d'auvergne"
+    "examples": "Cambozola, danish blue, gorgonzola, roquefort, stilton, bleu d'auvergne",
+    "pairing": "Noble Rot sweet whites like Sauternes, dessert whites like Vin Santo, late-harvest whites like Riesling. Sweet, fortified reds like port."
   }
 ]

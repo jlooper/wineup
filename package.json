@@ -12,12 +12,13 @@
   "license": "Apache",
   "repository": "github.com/jlooper/wineup",
   "dependencies": {
-    "nativescript-vue": "~2.4.0",
-    "tns-core-modules": "~6.1.0",
+    "@nstudio/nativescript-loading-indicator": "^1.0.0",
+    "axios": "^0.19.0",
     "nativescript-camera": "^4.5.0",
     "nativescript-plugin-firebase": "9.0.4",
-    "vuex": "^3.0.1",
-    "axios": "^0.19.0"
+    "nativescript-vue": "~2.4.0",
+    "tns-core-modules": "~6.1.0",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@babel/core": "~7.1.0",
