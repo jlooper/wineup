@@ -25,51 +25,17 @@
 import { mapActions, mapState } from "vuex";
 import * as camera from "nativescript-camera";
 import { ImageSource } from "tns-core-modules/image-source";
-//import RecipeModal from "../components/Modal";
 
 export default {
   data() {
     return {
       pictureFromCamera: null,
       variety: [],
-      //cheeseVariety: [],
-      //recipeModal: RecipeModal,
       isChecked: false
     };
   },
-  components: {
-    //modalWindow: RecipeModal
-  },
-  computed: {
-    //...mapState(["recipes"])
-  },
-  methods: {
-    //...mapActions(["fetchRecipe"]),
 
-    /*async setVariety() {
-      await this.fetchRecipe(this.recipeIngredients[0]).then(result => {
-        this.$refs.recipesbtn.nativeView.visibility = "visible";
-      });
-    },
-    check(checked, data) {
-      this.recipeIngredients = [];
-      let capIngredient =
-        data.substring(0, 1).toUpperCase() + data.substring(1);
-      if (checked) {
-        this.recipeIngredients.push(capIngredient);
-      } else {
-        var index = this.recipeIngredients.indexOf(capIngredient);
-        if (index !== -1) this.recipeIngredients.splice(index, 1);
-      }
-      this.setIngredient();
-    },
-    showRecipes(recipes) {
-      this.$showModal(RecipeModal, {
-        props: {
-          recipes: recipes
-        }
-      });
-    },*/
+  methods: {
     takePicture() {
       this.variety = [];
       this.pictureFromCamera = null;
@@ -100,7 +66,6 @@ export default {
           for (var i = 0; i < result.result.length; i++) {
             this.variety.push(result.result[i]);
           }
-          //this.setVariety(JSON.stringify(this.variety.text))
         })
         .catch(errorMessage => {
           alert("ML Kit error: " + errorMessage);
