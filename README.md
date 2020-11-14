@@ -31,7 +31,7 @@ Ensure that you have Android Studio and Xcode installed to run this app on mobil
 
 This cross-platform mobile app is built with [NativeScript-Vue](http://www.nativescript-vue.org), running custom machine learning models built for TensorFlow lite and running on your device with the Firebase plugin referenced above. Data is sourced from Wine Spectator magazine as discovered via Kaggle, and stored in Azure table storage. The data is discoverable via an API built with Azure functions.
 
-Azure functions are cool! Learn more about them [here](https://azure.microsoft.com/services/functions/?WT.mc_id=vuefes-github-jelooper).
+Azure functions are cool! Learn more about them [here](https://azure.microsoft.com/services/functions/?WT.mc_id=academic-0000-jelooper).
 
 Need to build a custom machine learning model? If you source your own data, you can take a look at [the system I use](https://github.com/jlooper/models/tree/master/research/slim#Custom) to train a quantization-aware custom machine learning model. Quantization is required by the aforementioned Firebase plugin. This fork of TensorFlow's research models has been sent to TensorFlow as a PR; for the moment, you can use these scripts.
 
